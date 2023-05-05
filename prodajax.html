@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <ul class="producten-lijst"></ul>
+    </div>
+  </body>
+</html>
+
+<script>
+  const productenLijst = document.querySelector('.producten-lijst');
+
+  fetch('productenAPI.php')
+    .then((response) => response.json())
+    .then((producten) => {
+      producten.forEach((product) => {
+        const li = document.createElement('li');
+        const h2 = document.createElement('h2');
+        const beschrijving = document.createElement('p');
+        const prijs = document.createElement('p');
+        const button = document.createElement('button');
+        h2.textContent = product.naam;
+        beschrijving.textContent = product.beschrijving;
+        prijs.textContent = `€${product.prijs}`;
+        button.textContent = 'Toevoegen aan winkelwagen';
+        li.appendChild(h2);
+        li.appendChild(beschrijving);
+        li.appendChild(prijs);
+        li.appendChild(button);
+        productenLijst.appendChild(li);
+      });
+    })
+    .catch((error) => console.error(error));
+</script>

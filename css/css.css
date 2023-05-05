@@ -1,0 +1,272 @@
+:root {
+  --geel: #F2C76E;
+  --licht: #eaf4f4;
+  --groen: #6b9080;
+  --heeldonker: #3d5248;
+  --rood: #D7594D;
+  --paars: #AD92BB;
+  --achtergrond: #F8F6F2;
+  --oranje: #F5B06F;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Varela Round", sans-serif;
+  font-size: 2rem;
+  line-height: 2.6rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Raleway", sans-serif;
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* utility */
+section {
+  overflow: hidden;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  padding: 1rem;
+}
+
+.grid2col {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: none;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .grid2col {
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr;
+  }
+  .container {
+    max-width: 1200px;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+}
+.hoog1 {
+  height: 50rem;
+}
+
+.hoog2 {
+  height: 100rem;
+}
+
+.gridcenter {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  position: relative;
+}
+
+.img-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+  opacity: 0.5;
+}
+
+/* center text*/
+.tc {
+  text-align: center;
+}
+
+/* center right align*/
+.tr {
+  text-align: right;
+}
+
+/* center left aligh*/
+.tl {
+  text-align: left;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+/* padding horizontaal medium*/
+.phm {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.phl {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* per pagina */
+.index section {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.index section h1 {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 5%;
+  color: var(--groen);
+}
+
+.leveringsvoorwaarden .coloms {
+  -moz-column-count: 3;
+       column-count: 3;
+}
+
+/*menu*/
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: -100vw;
+  transition: 1s;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo img {
+  max-width: auto;
+  max-height: 4rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #000;
+  padding: 10px 20px;
+  margin: 5px 0;
+}
+
+/* Show the mobile menu when the hamburger button is clicked */
+.show-menu {
+  left: 0;
+  transition: 1s;
+}
+
+.hamburger-menu {
+  display: block;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.hamburger-menu span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.hamburger-menu span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger-menu span:nth-child(2),
+.hamburger-menu span:nth-child(3) {
+  top: 15px;
+}
+
+.hamburger-menu span:nth-child(3) {
+  top: 30px;
+}
+
+/* Rotate the hamburger icon into an X when the menu is open */
+.show-menu .hamburger-menu span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 20px;
+  left: 10px;
+}
+
+.show-menu .hamburger-menu span:nth-child(2) {
+  opacity: 0;
+}
+
+.show-menu .hamburger-menu span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 20px;
+  left: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .menu {
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: none;
+    background-color: transparent;
+  }
+  .links {
+    flex-direction: row;
+  }
+  .logo {
+    padding-left: 50px;
+  }
+  .hamburger-menu {
+    visibility: hidden;
+  }
+}
